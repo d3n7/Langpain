@@ -7,6 +7,8 @@ This is unfortunate since GPT-3.5 is 10x cheaper than Davinci and 15-30x cheaper
 This is a solution:
 ![gptDiagram](https://user-images.githubusercontent.com/29033313/235370537-3f105feb-2de6-4869-a210-e349e550a158.png)
 
+Further explanation: https://www.youtube.com/watch?v=72KrhiRj68E
+
 # Installation
 ```pip install openai langchain```
 
