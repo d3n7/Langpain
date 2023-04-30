@@ -31,7 +31,7 @@ agentTools.extend(load_tools(['llm-math', 'terminal'], llm=llm))
 
 #set up GPT-3.5 director
 dllm = ChatOpenAI(temperature=0)
-directorSys = 'Respond only with "yes" or "no".'
+directorSys = 'Respond only with "yes" or "no"'
 directorPrompt = 'Does the following request require searching the internet, interacting with the filesystem, ' \
                  'executing code, or doing math calculations?\n"{}"\nRespond only with yes or no.'
 def direct(query):
