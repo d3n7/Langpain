@@ -33,13 +33,10 @@ agentTools.extend(load_tools(['llm-math', 'terminal'], llm=llm))
 dllm = ChatOpenAI(temperature=0)
 directorSys = 'Does the following request require searching the internet, interacting with the filesystem, ' \
               'executing code, or doing math calculations?\nRespond only with yes or no.'
-
-
 def direct(query):
     query = '"{}"'.format(query)
     yn = dllm([SystemMessage(content=directorSys), HumanMessage(content=query)]).content.lower()
     return 'yes' in yn
-
 
 # Main loop
 print('Type exit to quit')
@@ -57,8 +54,7 @@ while 1:
             # give the agent 1 message of context if there is any
             if len(history) > 1:
                 memory.chat_memory.add_ai_message(history[-2].content)
-            agent = initialize_agent(tools=agentTools, llm=chat, agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION,
-                                     verbose=True, memory=memory)
+            agent = initialize_agent(tools=agentTools, llm=chat, agent=AgentType.CHAT_CONVERSATIONAL_REACT_DESCRIPTION, verbose=True, memory=memory)
             try:
                 answer = agent.run(prompt)
             except Exception as e:
